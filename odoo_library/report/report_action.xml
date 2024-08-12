@@ -1,0 +1,14 @@
+<!-- <odoo>
+    <!-- Membuat Action/Event Report Session -->
+    <record id="report_library_transaction_action" model="ir.actions.report">
+        <field name="name">Transaksi Rental (PDF)</field>
+        <field name="model">library.transaction</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">odoo_library.report_transaction</field>
+        <field name="report_file">odoo_library.report_library_transaction</field>
+        <field name="print_report_name">'Transaksi - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_library_transaction"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+</odoo> -->

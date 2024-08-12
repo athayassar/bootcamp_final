@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="menu_dashboard_library" name="Library"/>
+    <menuitem id="menu_bar_library" name="Library" parent="menu_dashboard_library"/>
+
+    <menuitem id="menu_item_odoo_library" name="Library" parent="menu_bar_library" action="odoo_library_action"/>
+    <menuitem id="menu_item_library_transaction" name="Transaksi Rental" parent="menu_bar_library" action="library_transaction_action"/>
+    <menuitem id="menu_item_library_member" name="Member" parent="menu_bar_library" action="library_member_action"/>
+</odoo>

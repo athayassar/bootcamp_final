@@ -1,0 +1,151 @@
+<odoo>
+  
+  <!-- explicit list view definition -->
+
+  <record id="odoo_library_view_tree" model="ir.ui.view">
+    <field name="name">odoo.library.tree </field>
+    <field name="model">odoo.library</field>
+    <field name="arch" type="xml">
+      <tree string="Library List">
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="category"/>
+        <field name="publish_date"/>
+        <field name="amount"/>
+        <field name="code"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="odoo_library_view_form" model="ir.ui.view">
+    <field name="name">odoo.library.form</field>
+    <field name="model">odoo.library</field>
+    <field name="arch" type="xml">
+      <form string="Library Form">
+        <!-- <header>
+          <button name="action_print_transanction" type="object" string="Print Transaksi" class="oe_highlight"/>
+        </header> -->
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="publish_date"/>
+            <field name="user_id"/>            
+            <field name="category" widget="radio"/>
+          </group>
+          <group>
+            <field name="amount"/>
+            <field name="code"/>
+          </group>
+          <notebook>
+            <page string="Transaksi Rental">
+              <field name="transaction_line" mode="tree,kanban" nolabel="1">
+                <tree string="Transaksi" editable="bottom">
+                  <field name="name"/>
+                  <field name="location"/>
+                  <field name="start_date"/>
+                  <field name="end_date"/>
+                  <field name="quantity"/>
+                  <field name="cost"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  
+  <record id="odoo_library_action" model="ir.actions.act_window">
+    <field name="name">Library</field>
+    <field name="res_model">odoo.library</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p name="o_view_nocontent_smiling_face">
+        Buatlah koleksi buku pertamamu ...
+      </p>
+    </field>
+  </record>
+
+    <!-- Membuat View Tree/List Session -->
+  <record id="library_transaction_view_tree" model="ir.ui.view">
+    <field name="name">library.transaction.tree</field>
+    <field name="model">library.transaction</field>
+    <field name="arch" type="xml">
+      <tree string="Transaksi List">
+        <field name="library_id"/>
+        <field name="name"/>
+        <field name="location"/>
+        <field name="start_date"/>
+        <field name="end_date"/>
+        <field name="quantity"/>
+        <field name="cost"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="library_transaction_view_form" model="ir.ui.view">
+    <field name="name">library.transaction.form</field>
+    <field name="model">library.transaction</field>
+    <field name="arch" type="xml">
+      <form string="Transaksi Form">
+        <sheet>
+          <group>
+            <group string="Transaksi Rental">
+              <field name="library_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="name"/>
+              <field name="location"/>
+              <field name="quantity"/>
+              <field name="cost"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  
+  
+  <record id="library_transaction_action" model="ir.actions.act_window">
+    <field name="name">Transaksi Rental</field>
+    <field name="res_model">library.transaction</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="library_member_view_tree" model="ir.ui.view">
+    <field name="name">library.member.tree</field>
+    <field name="model">library.member</field>
+    <field name="arch" type="xml">
+      <tree string="Member List">
+        <field name="name"/>
+        <field name="id_type"/>
+        <field name="id_number"/>
+      </tree>
+    </field>
+  </record>
+  
+  
+  <record id="library_member_view_form" model="ir.ui.view">
+    <field name="name">library.member.form</field>
+    <field name="model">library.member</field>
+    <field name="arch" type="xml">
+      <form string="Member Form">
+        <sheet>
+          <group col="2">
+            <field name="name"/>
+            <field name="id_type" widget="radio"/>
+            <field name="id_number"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  
+  
+  <record id="library_member_action" model="ir.actions.act_window">
+    <field name="name">Member</field>
+    <field name="res_model">library.member</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+</odoo>
